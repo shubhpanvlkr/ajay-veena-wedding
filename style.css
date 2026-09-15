@@ -1,0 +1,511 @@
+:root {
+--primary: #7d0d1b;
+--gold: #d4af37;
+--gold-dark: #aa820a;
+--gold-light: #fae19c;
+--cream: #fdfbf7;
+--text: #2e2e2e;
+}
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background-color: var(--cream);
+color: var(--text);
+font-family: 'Montserrat', sans-serif;
+overflow-x: hidden;
+line-height: 1.7;
+}
+
+body.scroll-locked {
+overflow: hidden !important;
+height: 100vh !important;
+}
+
+#door-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+z-index: 9999;
+perspective: 1500px;
+display: flex;
+pointer-events: all;
+}
+
+.door {
+width: 50vw;
+height: 100vh;
+background: linear-gradient(135deg, #42040b 0%, #6e0d19 50%, #350106 100%);
+border: 4px solid var(--gold);
+position: relative;
+transition: transform 2.2s cubic-bezier(0.77, 0, 0.175, 1);
+transform-origin: left center;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+.door-right {
+transform-origin: right center;
+border-left: 2px solid var(--gold);
+}
+
+.door-left {
+border-right: 2px solid var(--gold);
+}
+
+.door-handle {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+border: 3px solid var(--gold);
+background: radial-gradient(circle, var(--gold-light), var(--gold-dark));
+box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.door-left .door-handle { right: 20px; }
+.door-right .door-handle { left: 20px; }
+
+.door-btn-wrapper {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 10000;
+text-align: center;
+transition: opacity 0.6s ease;
+}
+
+.open-door-btn {
+padding: 16px 36px;
+background: radial-gradient(circle, #ffe299, #d4af37);
+color: #3b0308;
+border: 2px solid #fff;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+cursor: pointer;
+box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+transition: all 0.3s;
+}
+
+.open-door-btn:hover {
+transform: scale(1.05);
+background: #fff;
+color: var(--primary);
+}
+
+.door-open-left {
+transform: rotateY(-115deg);
+}
+
+.door-open-right {
+transform: rotateY(115deg);
+}
+
+header.hero {
+min-height: 90vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+background: radial-gradient(circle, #fffaf3 0%, #f6ecdc 100%);
+padding: 40px 20px;
+border-bottom: 2px solid #ecd599;
+}
+
+.sub-tag {
+font-size: 0.9rem;
+letter-spacing: 4px;
+color: var(--gold-dark);
+text-transform: uppercase;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.main-names {
+font-family: 'Great Vibes', cursive;
+font-size: clamp(3.5rem, 8vw, 6rem);
+color: var(--primary);
+text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+margin: 10px 0;
+}
+
+.ampersand {
+font-family: 'Cinzel Decorative', serif;
+font-size: 0.5em;
+color: var(--gold);
+display: block;
+}
+
+section {
+padding: 80px 20px;
+max-width: 900px;
+margin: auto;
+text-align: center;
+}
+
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: 2.2rem;
+color: var(--primary);
+margin-bottom: 8px;
+}
+
+.section-sep {
+width: 70px;
+height: 2px;
+background: var(--gold);
+margin: 10px auto 35px;
+}
+
+.story-card {
+background: #fff;
+padding: 40px 30px;
+border-radius: 12px;
+border: 1px solid #fae8c8;
+box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+font-size: 1.05rem;
+color: #555;
+font-style: italic;
+}
+
+.countdown-grid {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 25px;
+}
+
+.countdown-item {
+background: #fff;
+border: 1px solid var(--gold);
+padding: 12px 18px;
+border-radius: 8px;
+min-width: 75px;
+box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+}
+
+.countdown-item span {
+display: block;
+font-size: 1.6rem;
+font-weight: 700;
+color: var(--primary);
+font-family: 'Playfair Display', serif;
+}
+
+.countdown-item label {
+font-size: 0.7rem;
+text-transform: uppercase;
+color: #888;
+}
+
+.info-card {
+background: #fff;
+border-radius: 12px;
+padding: 30px;
+border: 1px solid #fae8c8;
+box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+margin-top: 20px;
+}
+
+.itinerary-day {
+margin-bottom: 40px;
+text-align: left;
+}
+
+.day-badge {
+display: inline-block;
+background: var(--primary);
+color: #fff;
+padding: 6px 18px;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 15px;
+}
+
+.event-row {
+background: #fff;
+border-left: 4px solid var(--gold);
+padding: 16px 20px;
+margin-bottom: 15px;
+border-radius: 0 8px 8px 0;
+box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+.event-time {
+font-weight: 700;
+color: var(--gold-dark);
+font-size: 0.9rem;
+}
+
+.event-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.15rem;
+color: var(--primary);
+margin: 4px 0;
+}
+
+.btn {
+display: inline-block;
+padding: 14px 32px;
+border-radius: 30px;
+font-size: 0.9rem;
+font-weight: 600;
+letter-spacing: 1px;
+text-decoration: none;
+transition: all 0.3s;
+cursor: pointer;
+border: none;
+margin-top: 15px;
+}
+
+.btn-gold {
+background: var(--gold);
+color: #2e2e2e;
+}
+
+.btn-gold:hover {
+background: #bfa12b;
+}
+
+.btn-rsvp {
+background: #25d366;
+color: #fff;
+}
+
+.btn-rsvp:hover {
+background: #1da851;
+}
+
+#scratch-modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(15, 0, 3, 0.85);
+backdrop-filter: blur(8px);
+z-index: 8888;
+display: none;
+align-items: center;
+justify-content: center;
+padding: 20px;
+}
+
+.modal-box {
+background: #fffdf9;
+border: 3px solid var(--gold);
+border-radius: 16px;
+max-width: 420px;
+width: 100%;
+padding: 30px 20px;
+text-align: center;
+box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+from { transform: scale(0.85); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+
+.scratch-container {
+position: relative;
+width: 320px;
+height: 200px;
+margin: 20px auto 10px;
+border-radius: 12px;
+overflow: hidden;
+border: 2px solid var(--gold);
+box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.secret-layer {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #fff;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 15px;
+}
+
+.secret-layer h4 {
+color: var(--gold-dark);
+font-size: 0.8rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.secret-date {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+font-weight: 700;
+color: var(--primary);
+margin: 5px 0;
+}
+
+#scratch-canvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+cursor: grab;
+touch-action: none;
+}
+
+.progress-bar-wrap {
+width: 320px;
+height: 8px;
+background: #eee;
+border-radius: 4px;
+margin: 15px auto 5px;
+overflow: hidden;
+}
+
+.progress-bar {
+height: 100%;
+width: 0%;
+background: linear-gradient(90deg, var(--gold), var(--primary));
+transition: width 0.2s;
+}
+
+footer {
+background: #200407;
+color: #ecd599;
+padding: 40px 20px;
+text-align: center;
+font-size: 0.85rem;
+}
+
+JAVASCRIPT LOGIC (Paste inside your script file)
+function openDoors() {
+document.getElementById('door-btn-box').style.opacity = '0';
+document.getElementById('door-left').classList.add('door-open-left');
+document.getElementById('door-right').classList.add('door-open-right');
+
+setTimeout(() => {
+document.getElementById('door-overlay').style.display = 'none';
+document.body.classList.remove('scroll-locked');
+}, 1800);
+}
+
+const canvas = document.getElementById('scratch-canvas');
+const ctx = canvas.getContext('2d', { willReadFrequently: true });
+let isDrawing = false;
+let hasScratchUnlocked = false;
+let scratchPopupTriggered = false;
+
+function initFoil() {
+const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+grad.addColorStop(0, '#c79c29');
+grad.addColorStop(0.3, '#fbe6a2');
+grad.addColorStop(0.5, '#d4af37');
+grad.addColorStop(0.8, '#aa820a');
+grad.addColorStop(1, '#e8c764');
+ctx.fillStyle = grad;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.font = 'bold 16px Montserrat';
+ctx.fillStyle = '#42040b';
+ctx.textAlign = 'center';
+ctx.fillText('✨ SCRATCH HERE ✨', canvas.width / 2, canvas.height / 2 + 6);
+}
+initFoil();
+
+function scratch(e) {
+if (!isDrawing || hasScratchUnlocked) return;
+const rect = canvas.getBoundingClientRect();
+const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+const x = clientX - rect.left;
+const y = clientY - rect.top;
+
+ctx.globalCompositeOperation = 'destination-out';
+ctx.beginPath();
+ctx.arc(x, y, 22, 0, Math.PI * 2);
+ctx.fill();
+
+checkProgress();
+}
+
+function checkProgress() {
+const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+const pixels = imgData.data;
+let clear = 0;
+const total = pixels.length / 16;
+
+for (let i = 3; i < pixels.length; i += 16) {
+if (pixels[i] === 0) clear++;
+}
+
+const percent = Math.min(100, Math.round((clear / total) * 100));
+document.getElementById('scratch-progress').style.width = percent + '%';
+document.getElementById('scratch-percent-label').innerText = Scratched: ${percent}% / 70%;
+
+if (percent >= 70 && !hasScratchUnlocked) {
+hasScratchUnlocked = true;
+
+if (window.confetti) {
+  confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+}
+
+setTimeout(() => {
+  document.getElementById('scratch-modal').style.display = 'none';
+  document.body.classList.remove('scroll-locked');
+  document.getElementById('save-the-date').scrollIntoView({ behavior: 'smooth' });
+}, 800);
+}
+}
+
+canvas.addEventListener('mousedown', () => isDrawing = true);
+window.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mousemove', scratch);
+
+canvas.addEventListener('touchstart', (e) => { isDrawing = true; scratch(e); });
+window.addEventListener('touchend', () => isDrawing = false);
+canvas.addEventListener('touchmove', scratch);
+
+const saveDateSection = document.getElementById('save-the-date');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting && !hasScratchUnlocked && !scratchPopupTriggered) {
+scratchPopupTriggered = true;
+document.body.classList.add('scroll-locked');
+document.getElementById('scratch-modal').style.display = 'flex';
+}
+});
+}, { threshold: 0.35 });
+
+observer.observe(saveDateSection);
+
+const weddingDate = new Date("November 21, 2026 11:15:00").getTime();
+setInterval(() => {
+const now = new Date().getTime();
+const diff = weddingDate - now;
+
+document.getElementById("days").innerText = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+document.getElementById("hours").innerText = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+document.getElementById("mins").innerText = Math.max(0, Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+document.getElementById("secs").innerText = Math.max(0, Math.floor((diff % (1000 * 60)) / 1000));
+}, 1000);
