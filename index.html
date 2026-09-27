@@ -60,87 +60,176 @@
       width: 100vw;
       height: 100vh;
       z-index: 100000;
-      perspective: 1800px;
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: all;
       background: radial-gradient(circle at 50% 35%, #fffdfa 0%, #f7f1e7 45%, #ece1d1 85%, #d9cbba 100%);
       overflow: hidden;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* Outer Neoclassical Portico Frame & Cascading Floral Arch */
-    .door-portal-frame {
+    /* Portal Container matching SVG 1000x1200 aspect ratio - Resized for grand presence */
+    .portal-container {
+      position: relative;
+      width: min(96vw, 640px);
+      max-height: 94vh;
+      aspect-ratio: 1000 / 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 25px 60px rgba(60, 45, 30, 0.32));
+      perspective: 1800px;
+    }
+
+    /* Background Architectural Portal (Arch, Columns, Cascading Roses) */
+    .portal-arch-bg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 100005;
+      z-index: 2;
+    }
+
+    /* Doors Aperture directly inside the portal frame - Resized to 70% width */
+    .doors-aperture {
+      position: absolute;
+      left: 15%;
+      width: 70%;
+      top: 31.7%;
+      height: 68.3%;
+      perspective: 1600px;
+      transform-style: preserve-3d;
+      overflow: visible;
+      border-radius: 14px 14px 0 0;
+      border: 2px solid #dfd3c0;
+      border-bottom: none;
       display: flex;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.12);
+      z-index: 10;
+    }
+
+    /* Reveal Chamber Behind Doors (Ajay & Veena Real Image) */
+    .door-reveal-chamber {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.8s ease, transform 1s ease;
+      background: radial-gradient(circle at 50% 38%, #ffffff 0%, #faf3e8 55%, #ede0ce 100%);
+      padding: clamp(14px, 3vw, 24px);
+      text-align: center;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      box-shadow: inset 0 0 35px rgba(160, 130, 100, 0.2);
     }
 
-    .arch-svg-overlay {
+    .reveal-couple-frame {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .reveal-couple-ring {
+      width: clamp(96px, 22vw, 145px);
+      height: clamp(96px, 22vw, 145px);
+      border-radius: 50%;
+      border: 3.5px solid var(--gold);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.55), 0 8px 24px rgba(0,0,0,0.22);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .reveal-couple-ring img {
       width: 100%;
       height: 100%;
-      max-width: 1100px;
-      max-height: 100vh;
-      object-fit: contain;
-      pointer-events: none;
-      filter: drop-shadow(0 15px 35px rgba(80, 60, 45, 0.22));
+      object-fit: cover;
+      object-position: center 20%;
     }
 
-    /* Double Doors Housing */
-    .doors-pair {
-      width: min(84vw, 580px);
-      height: min(78vh, 740px);
-      display: flex;
-      position: relative;
-      perspective: 1800px;
-      box-shadow: 0 25px 60px rgba(90, 70, 50, 0.3);
-      border-radius: 20px 20px 0 0;
-      overflow: hidden;
-      margin-top: 40px;
-      border: 3px solid #dfd3c0;
+    .reveal-sub-motif {
+      font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+      letter-spacing: 3px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 2px;
     }
 
-    /* Individual White Romantic Door Leaves */
+    .reveal-welcome-text {
+      font-size: clamp(0.65rem, 1.7vw, 0.78rem);
+      color: #7a6a57;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .reveal-couple-names {
+      font-family: 'Alex Brush', cursive;
+      font-size: clamp(2rem, 5.5vw, 2.8rem);
+      color: var(--primary);
+      margin: 2px 0 4px;
+      line-height: 1.1;
+    }
+
+    .reveal-blessing {
+      font-size: clamp(0.7rem, 1.8vw, 0.82rem);
+      color: #5c4e3f;
+      font-style: italic;
+    }
+
+    /* The Moving Door Leaves - 50% each with smooth, wide opening action */
     .door {
+      position: absolute;
+      top: 0;
+      bottom: 0;
       width: 50%;
-      height: 100%;
-      position: relative;
-      transition: transform 2.4s cubic-bezier(0.7, 0, 0.15, 1);
+      transition: transform 1.6s cubic-bezier(0.2, 0.9, 0.3, 1.0), box-shadow 1.6s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 14px 28px;
-      /* Classical warm white & alabaster finish with delicate lighting */
-      background: linear-gradient(180deg, #ffffff 0%, #fbf8f2 35%, #f4ede2 80%, #ebe1d2 100%);
-      box-shadow: inset 0 0 35px rgba(180, 160, 140, 0.22);
+      padding: clamp(14px, 2.8vw, 24px) clamp(8px, 1.6vw, 14px);
+      background: linear-gradient(180deg, #ffffff 0%, #faf6ef 35%, #f4ede2 80%, #ebe0d0 100%);
+      box-shadow: inset 0 0 25px rgba(180, 160, 140, 0.18), inset 1px 0 4px rgba(255,255,255,0.9);
+      cursor: pointer;
+      z-index: 5;
     }
 
     .door-left {
+      left: 0;
       transform-origin: left center;
-      border-right: 2px solid #cfc0aa;
+      border-right: 1.5px solid #d4c5b0;
+      border-radius: 12px 0 0 0;
     }
 
     .door-right {
+      right: 0;
       transform-origin: right center;
-      border-left: 2px solid #cfc0aa;
+      border-left: 1.5px solid #d4c5b0;
+      border-radius: 0 12px 0 0;
+    }
+
+    /* Resized and Tuned 3D Door Opening Action - Full Unclipped Rotation */
+    .door-open-left {
+      transform: rotateY(-112deg);
+      box-shadow: -10px 14px 35px rgba(35, 25, 15, 0.4);
+    }
+
+    .door-open-right {
+      transform: rotateY(112deg);
+      box-shadow: 10px 14px 35px rgba(35, 25, 15, 0.4);
     }
 
     /* French Boiserie Moldings (Upper Arched Panel) */
     .door-panel-upper {
-      width: 88%;
+      width: 90%;
       height: 48%;
-      border: 3px solid #dfd4c3;
-      border-radius: 22px 22px 10px 10px;
+      border: 2.5px solid #dfd4c3;
+      border-radius: 20px 20px 8px 8px;
       background: linear-gradient(180deg, #fdfbf7 0%, #f6f0e4 100%);
-      box-shadow: inset 0 3px 10px rgba(0,0,0,0.06), 0 2px 4px rgba(255,255,255,0.9);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(255,255,255,0.9);
       position: relative;
       display: flex;
       align-items: center;
@@ -150,26 +239,26 @@
     .door-panel-upper::before {
       content: '';
       position: absolute;
-      inset: 8px;
-      border: 1.5px solid #eae0d0;
-      border-radius: 16px 16px 6px 6px;
+      inset: 6px;
+      border: 1px solid #eae0d0;
+      border-radius: 14px 14px 4px 4px;
     }
 
     .door-panel-upper::after {
       content: '❖';
       color: var(--gold);
-      font-size: 1.4rem;
-      opacity: 0.6;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      opacity: 0.7;
     }
 
     /* Middle Sculpted Floral Swag Panel */
     .door-panel-middle {
-      width: 88%;
+      width: 90%;
       height: 16%;
-      border: 2px solid #e2d6c6;
-      border-radius: 6px;
+      border: 1.8px solid #e2d6c6;
+      border-radius: 4px;
       background: linear-gradient(180deg, #faf5ec 0%, #f3eadc 100%);
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
       position: relative;
       display: flex;
       align-items: center;
@@ -178,20 +267,20 @@
 
     .door-panel-middle::after {
       content: '❧ ⚜ ❧';
-      letter-spacing: 6px;
+      letter-spacing: 4px;
       color: var(--gold-dark);
-      font-size: 0.95rem;
-      opacity: 0.65;
+      font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+      opacity: 0.7;
     }
 
     /* Lower Classical Cartouche Panel */
     .door-panel-lower {
-      width: 88%;
+      width: 90%;
       height: 28%;
-      border: 3px solid #dfd4c3;
+      border: 2.5px solid #dfd4c3;
       border-radius: 8px;
       background: linear-gradient(180deg, #faf5eb 0%, #efe4d3 100%);
-      box-shadow: inset 0 3px 8px rgba(0,0,0,0.06);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
       position: relative;
       display: flex;
       align-items: center;
@@ -201,27 +290,27 @@
     .door-panel-lower::before {
       content: '';
       position: absolute;
-      inset: 8px;
-      border: 1.5px solid #eae0d0;
+      inset: 6px;
+      border: 1px solid #eae0d0;
       border-radius: 4px;
     }
 
     .door-panel-lower::after {
       content: '❦';
       color: var(--gold);
-      font-size: 1.6rem;
-      opacity: 0.55;
+      font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+      opacity: 0.65;
     }
 
     /* Classical Vertical French Door Handles */
     .french-handle {
       position: absolute;
-      top: 52%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 12px;
-      height: 64px;
-      background: linear-gradient(180deg, #fff7d6 0%, #d4af37 50%, #8c6c12 100%);
-      border-radius: 6px;
+      width: 10px;
+      height: clamp(42px, 8vw, 60px);
+      background: linear-gradient(180deg, #fff7d6 0%, #e2b744 40%, #c89825 70%, #8a630e 100%);
+      border-radius: 5px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.8);
       z-index: 10;
     }
@@ -230,80 +319,85 @@
     .french-handle::after {
       content: '';
       position: absolute;
-      width: 18px;
-      height: 6px;
+      width: 16px;
+      height: 5px;
       background: linear-gradient(90deg, #fff7d6 0%, #d4af37 100%);
-      border-radius: 3px;
+      border-radius: 2px;
       left: -3px;
     }
-    .french-handle::before { top: 6px; }
-    .french-handle::after { bottom: 6px; }
+    .french-handle::before { top: 4px; }
+    .french-handle::after { bottom: 4px; }
 
-    .door-left .french-handle { right: 14px; }
-    .door-right .french-handle { left: 14px; }
+    .door-left .french-handle { right: 10px; }
+    .door-right .french-handle { left: 10px; }
 
-    /* Center Romantic Invitation Plaque (NO DATE, NO ADDRESS) */
+    /* Center Adjusted Door Tab (NO DATE, NO ADDRESS) */
     .door-btn-wrapper {
       position: absolute;
-      top: 52%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 100010;
+      z-index: 30;
       text-align: center;
-      transition: opacity 0.7s ease, transform 0.8s ease;
-      width: 90%;
-      max-width: 440px;
-      padding: 36px 24px;
-      background: radial-gradient(ellipse at center, rgba(255, 253, 248, 0.95) 0%, rgba(250, 244, 235, 0.98) 100%);
-      border-radius: 24px;
-      border: 2px solid var(--gold);
-      box-shadow: 0 15px 45px rgba(70, 50, 35, 0.25), 0 0 25px rgba(212, 175, 55, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.8);
+      transition: opacity 0.4s ease, transform 0.5s ease;
+      width: 88%;
+      max-width: 330px;
+      padding: clamp(18px, 4vw, 26px) clamp(14px, 3vw, 22px);
+      background: radial-gradient(ellipse at center, rgba(255, 254, 250, 0.98) 0%, rgba(252, 247, 238, 0.98) 100%);
+      border-radius: 22px;
+      border: 1.8px solid var(--gold);
+      box-shadow: 0 15px 40px rgba(60, 45, 30, 0.26), 0 0 25px rgba(212, 175, 55, 0.28);
       backdrop-filter: blur(10px);
     }
 
     .door-sub-motif {
-      font-size: 0.9rem;
-      letter-spacing: 5px;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      letter-spacing: 4px;
       color: var(--primary);
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-weight: 700;
+    }
+
+    .door-sub-text {
+      color: #7a6a57;
+      font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     .door-script-title {
       font-family: 'Alex Brush', cursive;
-      font-size: 4.4rem;
+      font-size: clamp(2.8rem, 8vw, 4rem);
       color: var(--primary);
       line-height: 1.1;
-      margin: 8px 0 22px;
+      margin: 4px 0 14px;
       text-shadow: 0 2px 10px rgba(120, 13, 25, 0.12), 0 0 20px rgba(212, 175, 55, 0.25);
     }
 
     .open-door-btn {
-      padding: 16px 42px;
+      padding: clamp(12px, 3vw, 15px) clamp(28px, 6vw, 38px);
       background: linear-gradient(135deg, #780d19 0%, #520811 100%);
       color: #fffdf9;
-      border: 2px solid var(--gold);
+      border: 1.5px solid var(--gold);
       border-radius: 50px;
-      font-size: 0.95rem;
+      font-size: clamp(0.82rem, 2vw, 0.92rem);
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(120, 13, 25, 0.35), 0 0 15px rgba(212, 175, 55, 0.35);
-      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 20px rgba(120, 13, 25, 0.35), 0 0 15px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .open-door-btn:hover {
-      transform: scale(1.06);
+      transform: scale(1.05);
       background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
       color: #2b0307;
-      box-shadow: 0 12px 35px rgba(120, 13, 25, 0.35), 0 0 25px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 10px 25px rgba(120, 13, 25, 0.3), 0 0 20px rgba(255, 215, 0, 0.7);
       border-color: #ffffff;
     }
-
-    .door-open-left { transform: rotateY(-118deg); }
-    .door-open-right { transform: rotateY(118deg); }
 
     /* ================= 2. SCRATCH CARD MODAL ================= */
     #scratch-modal {
@@ -426,56 +520,58 @@
     }
 
     .ornament {
+      display: none;
       color: var(--gold);
       font-size: 2rem;
       margin-bottom: 8px;
     }
 
     .sub-title {
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      font-size: 0.85rem;
+      font-size: clamp(0.72rem, 1.8vw, 0.78rem);
       color: var(--primary);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 600;
     }
 
-    /* NEW CALLIGRAPHIC FONT FOR AJAY & VEENA */
+    /* DECREASED CALLIGRAPHIC FONT FOR AJAY & VEENA */
     .names {
       font-family: 'Alex Brush', cursive;
-      font-size: clamp(3.8rem, 9vw, 6.2rem);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
       color: var(--primary);
-      margin: 8px 0;
-      line-height: 1.1;
+      margin: 6px 0;
+      line-height: 1.15;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.12);
     }
 
     .ampersand {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 0.45em;
+      font-size: 0.5em;
       color: var(--gold);
       display: block;
-      margin: -10px 0;
+      margin: -6px 0;
     }
 
     .hero-date {
       font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      letter-spacing: 2px;
+      font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+      letter-spacing: 1.5px;
       color: #333;
       margin-top: 10px;
     }
 
-    /* IMAGE CONTAINERS */
+    /* IMAGE CONTAINERS - Updated for regenerated 16:9 landscape image */
     .hero-img-box {
-      width: min(300px, 75vw);
-      height: 300px;
-      margin: 25px auto 15px;
-      border-radius: 50%;
-      border: 4px solid var(--gold);
-      padding: 6px;
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+      width: min(440px, 88vw);
+      height: auto;
+      aspect-ratio: 16 / 9;
+      margin: 18px auto 14px;
+      border-radius: 16px;
+      border: 2.5px solid var(--gold);
+      padding: 0;
+      background: transparent;
+      box-shadow: 0 10px 30px rgba(70, 50, 30, 0.2);
       overflow: hidden;
     }
 
@@ -483,7 +579,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: 14px;
+      display: block;
     }
 
     .profile-photo {
@@ -832,38 +929,53 @@
 </head>
 <body class="scroll-locked">
 
-  <!-- 1. WHITE ROMANTIC WEDDING ENTRANCE DOORS WITH GANESHA OVAL CREST -->
+  <!-- 1. WHITE ROMANTIC WEDDING ENTRANCE DOORS (From Reference Image) -->
   <div id="door-overlay">
-    <!-- Architectural Portico & Cascading Floral Arch from Reference -->
-    <div class="door-portal-frame" id="door-top-arch">
-      <img src="photos/white_wedding_arch.svg" alt="White Romantic Wedding Door Arch" class="arch-svg-overlay" />
-    </div>
+    <div class="portal-container" id="portal-container">
 
-    <!-- Double Doors Pair -->
-    <div class="doors-pair">
-      <!-- Left Door Leaf -->
-      <div class="door door-left" id="door-left">
-        <div class="door-panel-upper"></div>
-        <div class="door-panel-middle"></div>
-        <div class="door-panel-lower"></div>
-        <div class="french-handle"></div>
+      <!-- Architectural Portico & Cascading Floral Arch with Apex Ganesha Shrine (Reference Image SVG) -->
+      <img src="photos/white_wedding_arch.svg" alt="White Romantic Wedding Arch" class="portal-arch-bg" />
+
+      <!-- Doors Aperture with Reveal Chamber behind -->
+      <div class="doors-aperture" id="doors-aperture">
+        <!-- Reveal Chamber Behind Doors (Ajay & Veena Real Image) -->
+        <div class="door-reveal-chamber">
+          <div class="reveal-couple-frame">
+            <div class="reveal-couple-ring">
+              <img src="photos/ajay_veena.jpeg" alt="Ajay and Veena" onerror="this.src='photos/couple.jpg'" />
+            </div>
+          </div>
+          <p class="reveal-sub-motif">✦ शुभ विवाह ✦</p>
+          <p class="reveal-welcome-text">Warm Welcome To The Wedding Of</p>
+          <h3 class="reveal-couple-names">Ajay &amp; Veena</h3>
+          <p class="reveal-blessing">We invite you to celebrate our new beginning</p>
+        </div>
+
+        <!-- Left Door Leaf -->
+        <div class="door door-left" id="door-left" onclick="openDoors()" title="Click to Open Doors">
+          <div class="door-panel-upper"></div>
+          <div class="door-panel-middle"></div>
+          <div class="door-panel-lower"></div>
+          <div class="french-handle"></div>
+        </div>
+
+        <!-- Right Door Leaf -->
+        <div class="door door-right" id="door-right" onclick="openDoors()" title="Click to Open Doors">
+          <div class="door-panel-upper"></div>
+          <div class="door-panel-middle"></div>
+          <div class="door-panel-lower"></div>
+          <div class="french-handle"></div>
+        </div>
+
+        <!-- Center Door Tab / Invitation Plaque (Adjusted per user request: NO DATE, NO ADDRESS) -->
+        <div class="door-btn-wrapper" id="door-btn-box">
+          <p class="door-sub-motif">✦ शुभ विवाह ✦</p>
+          <p class="door-sub-text">The Wedding Celebration Of</p>
+          <h2 class="door-script-title">Ajay &amp; Veena</h2>
+          <button class="open-door-btn" onclick="openDoors()">✨ Open Invitation ✨</button>
+        </div>
       </div>
 
-      <!-- Right Door Leaf -->
-      <div class="door door-right" id="door-right">
-        <div class="door-panel-upper"></div>
-        <div class="door-panel-middle"></div>
-        <div class="door-panel-lower"></div>
-        <div class="french-handle"></div>
-      </div>
-    </div>
-
-    <!-- Center Romantic Invitation Card (NO DATE, NO ADDRESS) -->
-    <div class="door-btn-wrapper" id="door-btn-box">
-      <p class="door-sub-motif">✦ शुभ विवाह ✦</p>
-      <p style="color: #7a6a57; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;">The Wedding Celebration Of</p>
-      <h2 class="door-script-title">Ajay &amp; Veena</h2>
-      <button class="open-door-btn" onclick="openDoors()">✨ Open Invitation ✨</button>
     </div>
   </div>
 
@@ -909,9 +1021,9 @@
       Veena Lalwani
     </h1>
 
-    <!-- COUPLE HERO PHOTO (800x800px) -->
+    <!-- COUPLE HERO PHOTO (Regenerated 16:9) -->
     <div class="hero-img-box">
-      <img src="photos/couple.jpg" alt="Ajay and Veena Couple Portrait" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=80'" />
+      <img src="src/assets/images/regenerated_image_1790553048145.jpg" alt="Ajay and Veena Couple Portrait" onerror="this.src='photos/ajay_veena.jpeg'" />
     </div>
 
     <div class="hero-date">Sunday, November 22, 2026 • 4:00 PM</div>
@@ -931,7 +1043,7 @@
       <!-- Bride's Details -->
       <div class="family-card">
         <div class="profile-photo">
-          <img src="photos/veena.jpg" alt="Veena Lalwani" onerror="this.src='https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=300&auto=format&fit=crop&q=80'" />
+          <img src="photos/veena_real.jpg" alt="Veena Lalwani" onerror="this.src='photos/veena.jpg'" />
         </div>
         <h3>Veena Lalwani</h3>
         <p class="parents"><strong>Daughter of:</strong> Prakash Lalwani &amp; Neetu Lalwani</p>
@@ -941,7 +1053,7 @@
       <!-- Groom's Details -->
       <div class="family-card">
         <div class="profile-photo">
-          <img src="photos/ajay.jpg" alt="Ajay Kamat" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80'" />
+          <img src="src/assets/images/photos/ajay_real.jpg" alt="Ajay Kamat" onerror="this.src='photos/ajay_real.jpg'" />
         </div>
         <h3>Ajay Kamat</h3>
         <p class="parents"><strong>Son of:</strong> Diljit Kamat</p>
@@ -1140,29 +1252,41 @@
       const btnBox = document.getElementById('door-btn-box');
       if (btnBox) {
         btnBox.style.opacity = '0';
-        btnBox.style.transform = 'translate(-50%, -50%) scale(0.92)';
-      }
-      const arch = document.getElementById('door-top-arch');
-      if (arch) {
-        arch.style.opacity = '0';
-        arch.style.transform = 'translate(-50%, -30px)';
+        btnBox.style.transform = 'translate(-50%, -50%) scale(0.85)';
+        btnBox.style.pointerEvents = 'none';
       }
 
-      document.getElementById('door-left').classList.add('door-open-left');
-      document.getElementById('door-right').classList.add('door-open-right');
+      const doorLeft = document.getElementById('door-left');
+      const doorRight = document.getElementById('door-right');
+      if (doorLeft) doorLeft.classList.add('door-open-left');
+      if (doorRight) doorRight.classList.add('door-open-right');
       
       if (window.confetti) {
         setTimeout(() => {
-          confetti({ particleCount: 70, spread: 70, origin: { y: 0.5 } });
+          confetti({
+            particleCount: 90,
+            spread: 80,
+            origin: { y: 0.55 },
+            colors: ['#d4af37', '#fbe6a2', '#780d19', '#ffffff', '#e8c764']
+          });
         }, 350);
       }
 
+      // Grand reveal duration: allows guest to take in the opened doors & welcoming couple
       setTimeout(() => {
-        document.getElementById('door-overlay').style.display = 'none';
-        document.body.classList.remove('scroll-locked');
-        window.scrollTo(0, 0);
-        doorsOpened = true;
-      }, 1900);
+        const overlay = document.getElementById('door-overlay');
+        if (overlay) {
+          overlay.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+          overlay.style.opacity = '0';
+          overlay.style.transform = 'scale(1.04)';
+          setTimeout(() => {
+            overlay.style.display = 'none';
+            document.body.classList.remove('scroll-locked');
+            window.scrollTo(0, 0);
+            doorsOpened = true;
+          }, 800);
+        }
+      }, 2300);
     }
 
     // 2. SCRATCH CARD SETUP & 60% THRESHOLD
