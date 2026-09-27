@@ -1,0 +1,7 @@
+{
+  "name": "Ajay & Veena Wedding Invitation",
+  "description": "Royal Indian wedding celebration website and invitation for Ajay Kamat and Veena Lalwani.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

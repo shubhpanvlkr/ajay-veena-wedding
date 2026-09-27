@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Radiant Gold Gradients -->
+    <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8db" />
+      <stop offset="25%" stop-color="#f5d77f" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="75%" stop-color="#aa820a" />
+      <stop offset="100%" stop-color="#f9e295" />
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#d4af37" stop-opacity="0.6" />
+      <stop offset="70%" stop-color="#800a18" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#400208" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="shieldBg" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#690c17" />
+      <stop offset="60%" stop-color="#3d0309" />
+      <stop offset="100%" stop-color="#190104" />
+    </radialGradient>
+
+    <filter id="goldDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#ffd700" flood-opacity="0.5" />
+    </filter>
+
+    <filter id="emboss" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Aura Glow -->
+  <circle cx="250" cy="240" r="230" fill="url(#sunGlow)" />
+
+  <!-- Outer Ornate Medallion Frame -->
+  <circle cx="250" cy="240" r="215" fill="url(#shieldBg)" stroke="url(#goldGrad1)" stroke-width="6" filter="url(#emboss)" />
+  <circle cx="250" cy="240" r="200" fill="none" stroke="url(#goldGrad1)" stroke-width="2" stroke-dasharray="6,4" opacity="0.8" />
+  <circle cx="250" cy="240" r="192" fill="none" stroke="url(#goldGrad1)" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Decorative Ray Spikes / Petals -->
+  <g stroke="url(#goldGrad1)" stroke-width="2" opacity="0.65">
+    <line x1="250" y1="26" x2="250" y2="40" />
+    <line x1="250" y1="440" x2="250" y2="454" />
+    <line x1="43" y1="240" x2="57" y2="240" />
+    <line x1="443" y1="240" x2="457" y2="240" />
+    <line x1="104" y1="94" x2="114" y2="104" />
+    <line x1="396" y1="94" x2="386" y2="104" />
+    <line x1="104" y1="386" x2="114" y2="376" />
+    <line x1="396" y1="386" x2="386" y2="376" />
+  </g>
+
+  <!-- Sanskrit Sacred Chant Inscription Curved Top -->
+  <path id="textArc" d="M 90 235 A 165 165 0 0 1 410 235" fill="none" />
+  <text font-family="'Playfair Display', Georgia, serif" font-size="19" font-weight="bold" fill="url(#goldGrad1)" letter-spacing="4" text-anchor="middle">
+    <textPath href="#textArc" startOffset="50%">॥ श्री गणेशाय नमः ॥</textPath>
+  </text>
+
+  <!-- GANESHA DIVINE ICONOGRAPHY -->
+  <g id="ganeshaFigure" transform="translate(0, 15)">
+    <!-- Crown / Mukut -->
+    <path d="M 250 85 L 268 118 L 285 145 L 215 145 L 232 118 Z" fill="url(#goldGrad1)" stroke="#b8860b" stroke-width="2" filter="url(#goldDropShadow)" />
+    <!-- Mukut Jewel Tiers -->
+    <path d="M 238 128 L 250 102 L 262 128 Z" fill="#b80018" stroke="url(#goldGrad1)" stroke-width="1.5" />
+    <circle cx="250" cy="84" r="5" fill="url(#goldGrad1)" />
+    <circle cx="250" cy="116" r="3" fill="#ffffff" />
+    
+    <!-- Mukut Base Band -->
+    <rect x="210" y="142" width="80" height="12" rx="3" fill="url(#goldGrad1)" stroke="#aa820a" stroke-width="1.5" />
+    <circle cx="225" cy="148" r="2.5" fill="#780d19" />
+    <circle cx="250" cy="148" r="2.5" fill="#780d19" />
+    <circle cx="275" cy="148" r="2.5" fill="#780d19" />
+
+    <!-- Forehead (Mastak) & Tilak -->
+    <!-- Sacred Trishul & Red Tilak -->
+    <path d="M 246 158 Q 250 152 254 158 L 254 184 Q 250 188 246 184 Z" fill="#d91b2b" />
+    <path d="M 238 162 Q 244 172 250 178 Q 256 172 262 162" fill="none" stroke="url(#goldGrad1)" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="235" y1="168" x2="265" y2="168" stroke="url(#goldGrad1)" stroke-width="2.5" />
+    <circle cx="250" cy="188" r="3.5" fill="#ffcc00" />
+
+    <!-- Right Ear (Viewer Left) -->
+    <path d="M 215 152 C 160 155 145 195 160 230 C 172 250 198 250 216 238" fill="none" stroke="url(#goldGrad1)" stroke-width="5" stroke-linecap="round" filter="url(#goldDropShadow)" />
+    <!-- Ear Inner Detail -->
+    <path d="M 180 180 C 170 200 175 220 192 230" fill="none" stroke="url(#goldGrad1)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+    <!-- Earring Kundal Left -->
+    <circle cx="162" cy="235" r="7" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5" />
+    <circle cx="162" cy="245" r="3" fill="#b80018" />
+
+    <!-- Left Ear (Viewer Right) -->
+    <path d="M 285 152 C 340 155 355 195 340 230 C 328 250 302 250 284 238" fill="none" stroke="url(#goldGrad1)" stroke-width="5" stroke-linecap="round" filter="url(#goldDropShadow)" />
+    <!-- Ear Inner Detail -->
+    <path d="M 320 180 C 330 200 325 220 308 230" fill="none" stroke="url(#goldGrad1)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+    <!-- Earring Kundal Right -->
+    <circle cx="338" cy="235" r="7" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5" />
+    <circle cx="338" cy="245" r="3" fill="#b80018" />
+
+    <!-- Head & Cheeks Flow -->
+    <path d="M 218 155 C 220 190 225 210 232 230" fill="none" stroke="url(#goldGrad1)" stroke-width="3" />
+    <path d="M 282 155 C 280 190 275 210 268 230" fill="none" stroke="url(#goldGrad1)" stroke-width="3" />
+
+    <!-- Eyes with Benevolent Divine Glance -->
+    <!-- Left Eye (Viewer) -->
+    <path d="M 224 195 Q 235 188 243 194" fill="none" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+    <ellipse cx="234" cy="197" rx="3.5" ry="2" fill="#fff" />
+    <circle cx="234" cy="197" r="1.5" fill="#42040b" />
+
+    <!-- Right Eye (Viewer) -->
+    <path d="M 257 194 Q 265 188 276 195" fill="none" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+    <ellipse cx="266" cy="197" rx="3.5" ry="2" fill="#fff" />
+    <circle cx="266" cy="197" r="1.5" fill="#42040b" />
+
+    <!-- Beautiful Curved Trunk (Vakratunda) Flowing Gracefully to Left -->
+    <path d="M 240 220 C 242 250 238 275 220 300 C 205 320 190 325 185 308 C 180 290 198 276 214 278" fill="none" stroke="url(#goldGrad1)" stroke-width="6" stroke-linecap="round" filter="url(#goldDropShadow)" />
+    
+    <path d="M 260 220 C 258 250 255 280 235 312 C 215 342 178 340 170 308 C 165 272 195 258 220 262" fill="none" stroke="url(#goldGrad1)" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+
+    <!-- Golden Bell / Floral Trinket at Trunk Tip -->
+    <circle cx="188" cy="285" r="7" fill="url(#goldGrad1)" stroke="#b8860b" stroke-width="1.5" />
+    <circle cx="188" cy="285" r="3" fill="#b80018" />
+
+    <!-- Single Tusk (Ekadanta) & Broken Tusk -->
+    <path d="M 270 236 L 284 246 L 273 246 Z" fill="#ffffff" stroke="url(#goldGrad1)" stroke-width="1" />
+    <!-- Broken Left Tusk -->
+    <path d="M 230 236 L 222 242 L 227 243 Z" fill="#ffffff" stroke="url(#goldGrad1)" stroke-width="1" />
+
+    <!-- Sacred Modak (Sweet) in Hand / Trunk Reach -->
+    <path d="M 180 280 C 172 268 188 254 196 265 C 200 274 190 286 180 280 Z" fill="#fbe6a2" stroke="url(#goldGrad1)" stroke-width="2" />
+    <circle cx="188" cy="270" r="2" fill="#d4af37" />
+
+    <!-- Abhaya Mudra (Blessing Right Hand on Viewer Right) -->
+    <g transform="translate(295, 260)">
+      <!-- Palm -->
+      <path d="M 10 20 C 15 5 35 10 40 25 C 43 38 35 55 20 60 C 8 55 5 35 10 20 Z" fill="none" stroke="url(#goldGrad1)" stroke-width="4" stroke-linecap="round" filter="url(#goldDropShadow)" />
+      <!-- Fingers Blessing upward -->
+      <path d="M 18 12 L 18 2" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+      <path d="M 25 10 L 26 -2" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+      <path d="M 32 12 L 34 3" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+      <path d="M 38 18 L 42 10" stroke="url(#goldGrad1)" stroke-width="3" stroke-linecap="round" />
+      <!-- Divine Swastika or Aum on Palm -->
+      <circle cx="24" cy="35" r="8" fill="#780d19" stroke="url(#goldGrad1)" stroke-width="1.5" />
+      <text x="24" y="39" font-size="11" fill="url(#goldGrad1)" font-family="serif" text-anchor="middle" font-weight="bold">ॐ</text>
+    </g>
+
+    <!-- Royal Lotus Pedestal (Padmasana) at bottom -->
+    <g transform="translate(150, 350)" stroke="url(#goldGrad1)" stroke-width="3" fill="none">
+      <path d="M 100 0 C 70 30 30 35 0 25 C 25 45 75 50 100 35 C 125 50 175 45 200 25 C 170 35 130 30 100 0 Z" fill="#5e0913" filter="url(#goldDropShadow)" />
+      <!-- Center Lotus Petal -->
+      <path d="M 100 -5 C 90 -25 100 -40 100 -40 C 100 -40 110 -25 100 -5 Z" fill="#91101e" />
+      <!-- Side Lotus Petals -->
+      <path d="M 85 0 C 65 -15 65 -30 65 -30 C 75 -20 85 -10 90 2 Z" fill="#780d19" />
+      <path d="M 115 0 C 135 -15 135 -30 135 -30 C 125 -20 115 -10 110 2 Z" fill="#780d19" />
+      <path d="M 68 8 C 45 0 45 -12 45 -12 C 55 -6 68 0 72 10 Z" fill="#690c17" />
+      <path d="M 132 8 C 155 0 155 -12 155 -12 C 145 -6 132 0 128 10 Z" fill="#690c17" />
+    </g>
+
+    <!-- Hanging Auspicious Bells on sides -->
+    <g transform="translate(90, 140)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="url(#goldGrad1)" stroke-width="2" stroke-dasharray="3,3" />
+      <path d="M -8 40 L 8 40 L 10 52 L -10 52 Z" fill="url(#goldGrad1)" />
+      <circle cx="0" cy="56" r="3" fill="url(#goldGrad1)" />
+    </g>
+    <g transform="translate(410, 140)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="url(#goldGrad1)" stroke-width="2" stroke-dasharray="3,3" />
+      <path d="M -8 40 L 8 40 L 10 52 L -10 52 Z" fill="url(#goldGrad1)" />
+      <circle cx="0" cy="56" r="3" fill="url(#goldGrad1)" />
+    </g>
+  </g>
+
+  <!-- Bottom Sacred Inscription -->
+  <text x="250" y="445" font-family="'Cinzel Decorative', Georgia, serif" font-size="14" font-weight="700" fill="url(#goldGrad1)" letter-spacing="3" text-anchor="middle">
+    ✦ SHUBH VIVAH ✦
+  </text>
+</svg>

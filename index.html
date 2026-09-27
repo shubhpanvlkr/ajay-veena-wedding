@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Wedding Invitation | Ajay &amp; Veena</title>
+  <title>Ajay &amp; Veena Wedding Invitation</title>
+  <meta name="description" content="Royal Indian wedding celebration website and invitation for Ajay Kamat and Veena Lalwani." />
+  <meta property="og:title" content="Ajay &amp; Veena Wedding Invitation" />
+  <meta property="og:description" content="Royal Indian wedding celebration website and invitation for Ajay Kamat and Veena Lalwani." />
+  <meta property="og:type" content="website" />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,134 +53,253 @@
       height: 100vh !important;
     }
 
-    /* ================= 1. NEW ROYAL CARVED PALACE DOORS ================= */
+    /* ================= 1. WHITE ROMANTIC WEDDING DOORS (Based on Reference) ================= */
     #door-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       z-index: 100000;
-      perspective: 1600px;
-      display: flex;
-      pointer-events: all;
-      background: #1a0204;
-    }
-
-    .door {
-      width: 50vw;
-      height: 100vh;
-      position: relative;
-      transition: transform 2.2s cubic-bezier(0.77, 0, 0.175, 1);
+      perspective: 1800px;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Detailed royal rosewood texture with gold metallic trims */
-      background: radial-gradient(ellipse at center, #541118 0%, #2e0509 70%, #150103 100%);
-      border: 6px solid var(--gold);
-      box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.9);
+      pointer-events: all;
+      background: radial-gradient(circle at 50% 35%, #fffdfa 0%, #f7f1e7 45%, #ece1d1 85%, #d9cbba 100%);
+      overflow: hidden;
+    }
+
+    /* Outer Neoclassical Portico Frame & Cascading Floral Arch */
+    .door-portal-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 100005;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease, transform 1s ease;
+    }
+
+    .arch-svg-overlay {
+      width: 100%;
+      height: 100%;
+      max-width: 1100px;
+      max-height: 100vh;
+      object-fit: contain;
+      pointer-events: none;
+      filter: drop-shadow(0 15px 35px rgba(80, 60, 45, 0.22));
+    }
+
+    /* Double Doors Housing */
+    .doors-pair {
+      width: min(84vw, 580px);
+      height: min(78vh, 740px);
+      display: flex;
+      position: relative;
+      perspective: 1800px;
+      box-shadow: 0 25px 60px rgba(90, 70, 50, 0.3);
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      margin-top: 40px;
+      border: 3px solid #dfd3c0;
+    }
+
+    /* Individual White Romantic Door Leaves */
+    .door {
+      width: 50%;
+      height: 100%;
+      position: relative;
+      transition: transform 2.4s cubic-bezier(0.7, 0, 0.15, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 14px 28px;
+      /* Classical warm white & alabaster finish with delicate lighting */
+      background: linear-gradient(180deg, #ffffff 0%, #fbf8f2 35%, #f4ede2 80%, #ebe1d2 100%);
+      box-shadow: inset 0 0 35px rgba(180, 160, 140, 0.22);
     }
 
     .door-left {
       transform-origin: left center;
-      border-right: 3px solid var(--gold);
+      border-right: 2px solid #cfc0aa;
     }
 
     .door-right {
       transform-origin: right center;
-      border-left: 3px solid var(--gold);
+      border-left: 2px solid #cfc0aa;
     }
 
-    /* Carved Panel Ornaments on Door */
-    .door::before {
-      content: '';
-      position: absolute;
-      inset: 30px 20px;
-      border: 2px dashed var(--gold);
-      border-radius: 8px;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .door::after {
-      content: '❖';
-      position: absolute;
-      color: var(--gold);
-      font-size: 2.2rem;
-      top: 18%;
-      opacity: 0.8;
-    }
-
-    /* Traditional Indian Ring Knockers / Handles */
-    .door-knocker {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      border: 4px solid var(--gold);
-      background: radial-gradient(circle, #fce6a8 0%, var(--gold-dark) 100%);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.8);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    /* French Boiserie Moldings (Upper Arched Panel) */
+    .door-panel-upper {
+      width: 88%;
+      height: 48%;
+      border: 3px solid #dfd4c3;
+      border-radius: 22px 22px 10px 10px;
+      background: linear-gradient(180deg, #fdfbf7 0%, #f6f0e4 100%);
+      box-shadow: inset 0 3px 10px rgba(0,0,0,0.06), 0 2px 4px rgba(255,255,255,0.9);
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .door-knocker-ring {
-      width: 38px;
-      height: 38px;
-      border: 3px solid #330408;
-      border-radius: 50%;
+    .door-panel-upper::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1.5px solid #eae0d0;
+      border-radius: 16px 16px 6px 6px;
     }
 
-    .door-left .door-knocker { right: 25px; }
-    .door-right .door-knocker { left: 25px; }
+    .door-panel-upper::after {
+      content: '❖';
+      color: var(--gold);
+      font-size: 1.4rem;
+      opacity: 0.6;
+    }
 
+    /* Middle Sculpted Floral Swag Panel */
+    .door-panel-middle {
+      width: 88%;
+      height: 16%;
+      border: 2px solid #e2d6c6;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #faf5ec 0%, #f3eadc 100%);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .door-panel-middle::after {
+      content: '❧ ⚜ ❧';
+      letter-spacing: 6px;
+      color: var(--gold-dark);
+      font-size: 0.95rem;
+      opacity: 0.65;
+    }
+
+    /* Lower Classical Cartouche Panel */
+    .door-panel-lower {
+      width: 88%;
+      height: 28%;
+      border: 3px solid #dfd4c3;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #faf5eb 0%, #efe4d3 100%);
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.06);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .door-panel-lower::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1.5px solid #eae0d0;
+      border-radius: 4px;
+    }
+
+    .door-panel-lower::after {
+      content: '❦';
+      color: var(--gold);
+      font-size: 1.6rem;
+      opacity: 0.55;
+    }
+
+    /* Classical Vertical French Door Handles */
+    .french-handle {
+      position: absolute;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 64px;
+      background: linear-gradient(180deg, #fff7d6 0%, #d4af37 50%, #8c6c12 100%);
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.8);
+      z-index: 10;
+    }
+
+    .french-handle::before,
+    .french-handle::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 6px;
+      background: linear-gradient(90deg, #fff7d6 0%, #d4af37 100%);
+      border-radius: 3px;
+      left: -3px;
+    }
+    .french-handle::before { top: 6px; }
+    .french-handle::after { bottom: 6px; }
+
+    .door-left .french-handle { right: 14px; }
+    .door-right .french-handle { left: 14px; }
+
+    /* Center Romantic Invitation Plaque (NO DATE, NO ADDRESS) */
     .door-btn-wrapper {
       position: absolute;
-      top: 50%;
+      top: 52%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 100001;
+      z-index: 100010;
       text-align: center;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.7s ease, transform 0.8s ease;
       width: 90%;
       max-width: 440px;
-      padding: 30px 20px;
-      background: rgba(22, 1, 4, 0.75);
-      border-radius: 20px;
-      border: 1px solid var(--gold);
-      backdrop-filter: blur(4px);
+      padding: 36px 24px;
+      background: radial-gradient(ellipse at center, rgba(255, 253, 248, 0.95) 0%, rgba(250, 244, 235, 0.98) 100%);
+      border-radius: 24px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 15px 45px rgba(70, 50, 35, 0.25), 0 0 25px rgba(212, 175, 55, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .door-sub-motif {
+      font-size: 0.9rem;
+      letter-spacing: 5px;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
     }
 
     .door-script-title {
       font-family: 'Alex Brush', cursive;
-      font-size: 4rem;
-      color: #fff;
+      font-size: 4.4rem;
+      color: var(--primary);
       line-height: 1.1;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+      margin: 8px 0 22px;
+      text-shadow: 0 2px 10px rgba(120, 13, 25, 0.12), 0 0 20px rgba(212, 175, 55, 0.25);
     }
 
     .open-door-btn {
-      padding: 16px 40px;
-      background: radial-gradient(circle, #ffe299, #d4af37);
-      color: #3b0308;
-      border: 2px solid #fff;
+      padding: 16px 42px;
+      background: linear-gradient(135deg, #780d19 0%, #520811 100%);
+      color: #fffdf9;
+      border: 2px solid var(--gold);
       border-radius: 50px;
       font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(120, 13, 25, 0.35), 0 0 15px rgba(212, 175, 55, 0.35);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .open-door-btn:hover {
       transform: scale(1.06);
-      background: #ffffff;
-      color: var(--primary);
+      background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+      color: #2b0307;
+      box-shadow: 0 12px 35px rgba(120, 13, 25, 0.35), 0 0 25px rgba(255, 215, 0, 0.7);
+      border-color: #ffffff;
     }
 
     .door-open-left { transform: rotateY(-118deg); }
@@ -667,18 +790,35 @@
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: var(--primary);
+      background: radial-gradient(circle, #8a101d 0%, var(--primary-dark) 100%);
       color: #fff;
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-      z-index: 100;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 15px rgba(212, 175, 55, 0.4);
+      z-index: 1000;
       border: 2px solid var(--gold);
+      font-size: 1.35rem;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 22px rgba(255, 215, 0, 0.7);
+    }
+
+    .music-btn.playing {
+      animation: rotateVinyl 8s linear infinite;
+    }
+
+    @keyframes rotateVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     footer {
@@ -692,30 +832,46 @@
 </head>
 <body class="scroll-locked">
 
-  <!-- 1. ROYAL PALACE DOORS WITH KNOCKERS -->
+  <!-- 1. WHITE ROMANTIC WEDDING ENTRANCE DOORS WITH GANESHA OVAL CREST -->
   <div id="door-overlay">
-    <div class="door door-left" id="door-left">
-      <div class="door-knocker">
-        <div class="door-knocker-ring"></div>
+    <!-- Architectural Portico & Cascading Floral Arch from Reference -->
+    <div class="door-portal-frame" id="door-top-arch">
+      <img src="photos/white_wedding_arch.svg" alt="White Romantic Wedding Door Arch" class="arch-svg-overlay" />
+    </div>
+
+    <!-- Double Doors Pair -->
+    <div class="doors-pair">
+      <!-- Left Door Leaf -->
+      <div class="door door-left" id="door-left">
+        <div class="door-panel-upper"></div>
+        <div class="door-panel-middle"></div>
+        <div class="door-panel-lower"></div>
+        <div class="french-handle"></div>
+      </div>
+
+      <!-- Right Door Leaf -->
+      <div class="door door-right" id="door-right">
+        <div class="door-panel-upper"></div>
+        <div class="door-panel-middle"></div>
+        <div class="door-panel-lower"></div>
+        <div class="french-handle"></div>
       </div>
     </div>
-    <div class="door door-right" id="door-right">
-      <div class="door-knocker">
-        <div class="door-knocker-ring"></div>
-      </div>
-    </div>
+
+    <!-- Center Romantic Invitation Card (NO DATE, NO ADDRESS) -->
     <div class="door-btn-wrapper" id="door-btn-box">
-      <p style="color: #fae19c; font-size: 0.95rem; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase;">The Wedding Invitation Of</p>
+      <p class="door-sub-motif">✦ शुभ विवाह ✦</p>
+      <p style="color: #7a6a57; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;">The Wedding Celebration Of</p>
       <h2 class="door-script-title">Ajay &amp; Veena</h2>
-      <button class="open-door-btn" onclick="openDoors()">Open Invitation ✨</button>
+      <button class="open-door-btn" onclick="openDoors()">✨ Open Invitation ✨</button>
     </div>
   </div>
 
-  <!-- 2. SCRATCH POPUP MODAL (LOCKED AT 70%) -->
+  <!-- 2. SCRATCH POPUP MODAL (LOCKED AT 60%) -->
   <div id="scratch-modal">
     <div class="modal-box">
       <h3 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.45rem;">Save Our Date!</h3>
-      <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Scratch at least 70% to unlock the full invitation</p>
+      <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Scratch at least 60% to unlock the full invitation</p>
 
       <div class="scratch-wrapper">
         <div class="scratch-reveal">
@@ -730,7 +886,7 @@
       <div class="progress-bar-wrap">
         <div class="progress-bar" id="scratch-progress"></div>
       </div>
-      <p id="scratch-percent-label" style="font-size: 0.8rem; color: var(--gold-dark); font-weight: 600;">Scratched: 0% / 70%</p>
+      <p id="scratch-percent-label" style="font-size: 0.8rem; color: var(--gold-dark); font-weight: 600;">Scratched: 0% / 60%</p>
     </div>
   </div>
 
@@ -738,9 +894,9 @@
   <canvas id="petals-canvas"></canvas>
 
   <!-- Ambient Background Audio -->
-  <div class="music-btn" onclick="toggleAudio()" title="Toggle Music">🎵</div>
+  <div class="music-btn" id="music-btn" onclick="toggleAudio()" title="Play / Pause Wedding Music">🎵</div>
   <audio id="bg-audio" loop preload="auto">
-    <source src="https://actions.google.com/sounds/v1/water/rain_ambient.ogg" type="audio/ogg">
+    <source src="audio/wedding_music.mp3" type="audio/mpeg">
   </audio>
 
   <!-- HERO SECTION -->
@@ -903,7 +1059,7 @@
         <a href="tel:8237987099" class="contact-pill">📞 Vijay: 8237987099</a>
         <a href="tel:9503688063" class="contact-pill">📞 Sanju: 9503688063</a>
         <a href="tel:7021795250" class="contact-pill">📞 Shubham: 7021795250</a>
-        <a href="tel:7021795250" class="contact-pill">📞 Mayur: 9029366396</a>
+        <a href="tel:9029366396" class="contact-pill">📞 Mayur: 9029366396</a>
       </div>
     </div>
   </section>
@@ -914,20 +1070,93 @@
   </footer>
 
   <script>
-    // 1. ROYAL DOOR OPENING & PIN TO TOP
+    // 1. ROYAL DOOR OPENING & AUDIO CONTROLS
     const audio = document.getElementById('bg-audio');
+    const musicBtn = document.getElementById('music-btn');
     let doorsOpened = false;
+    let userManuallyPaused = false;
 
     window.scrollTo(0, 0);
 
+    function updateMusicButton(isPlaying) {
+      if (!musicBtn) return;
+      if (isPlaying) {
+        musicBtn.classList.add('playing');
+        musicBtn.innerHTML = '🎶';
+        musicBtn.title = 'Music Playing (Click to Pause)';
+      } else {
+        musicBtn.classList.remove('playing');
+        musicBtn.innerHTML = '🔇';
+        musicBtn.title = 'Music Paused (Click to Play)';
+      }
+    }
+
+    function playMusic() {
+      if (!audio) return;
+      audio.play().then(() => {
+        updateMusicButton(true);
+      }).catch((e) => {
+        console.log('Audio autoplay waiting for user interaction:', e);
+        updateMusicButton(false);
+      });
+    }
+
+    function toggleAudio() {
+      if (!audio) return;
+      if (audio.paused) {
+        userManuallyPaused = false;
+        playMusic();
+      } else {
+        userManuallyPaused = true;
+        audio.pause();
+        updateMusicButton(false);
+      }
+    }
+
+    if (audio) {
+      audio.addEventListener('play', () => updateMusicButton(true));
+      audio.addEventListener('pause', () => updateMusicButton(false));
+      audio.addEventListener('ended', () => {
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+      });
+    }
+
+    // Unlock audio on any initial interaction if not yet playing
+    const unlockAudio = () => {
+      if (audio && audio.paused && !userManuallyPaused) {
+        audio.play().then(() => updateMusicButton(true)).catch(() => {});
+      }
+      window.removeEventListener('click', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+    };
+    window.addEventListener('click', unlockAudio);
+    window.addEventListener('touchstart', unlockAudio);
+
     function openDoors() {
       window.scrollTo(0, 0);
-      audio.play().catch(() => {});
+      playMusic();
 
-      document.getElementById('door-btn-box').style.opacity = '0';
+      const btnBox = document.getElementById('door-btn-box');
+      if (btnBox) {
+        btnBox.style.opacity = '0';
+        btnBox.style.transform = 'translate(-50%, -50%) scale(0.92)';
+      }
+      const arch = document.getElementById('door-top-arch');
+      if (arch) {
+        arch.style.opacity = '0';
+        arch.style.transform = 'translate(-50%, -30px)';
+      }
+
       document.getElementById('door-left').classList.add('door-open-left');
       document.getElementById('door-right').classList.add('door-open-right');
       
+      if (window.confetti) {
+        setTimeout(() => {
+          confetti({ particleCount: 70, spread: 70, origin: { y: 0.5 } });
+        }, 350);
+      }
+
       setTimeout(() => {
         document.getElementById('door-overlay').style.display = 'none';
         document.body.classList.remove('scroll-locked');
@@ -936,7 +1165,7 @@
       }, 1900);
     }
 
-    // 2. SCRATCH CARD SETUP & 70% THRESHOLD
+    // 2. SCRATCH CARD SETUP & 60% THRESHOLD
     const canvas = document.getElementById('scratch-canvas');
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     let isDrawing = false;
@@ -990,10 +1219,10 @@
 
       const percent = Math.min(100, Math.round((clear / total) * 100));
       document.getElementById('scratch-progress').style.width = percent + '%';
-      document.getElementById('scratch-percent-label').innerText = `Scratched: ${percent}% / 70%`;
+      document.getElementById('scratch-percent-label').innerText = `Scratched: ${percent}% / 60%`;
 
-      // UNLOCK ONLY AT 70%
-      if (percent >= 70 && !hasScratchUnlocked) {
+      // UNLOCK ONLY AT 60%
+      if (percent >= 60 && !hasScratchUnlocked) {
         hasScratchUnlocked = true;
         
         if (window.confetti) {
