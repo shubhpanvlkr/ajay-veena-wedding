@@ -331,7 +331,7 @@
     .door-left .french-handle { right: 10px; }
     .door-right .french-handle { left: 10px; }
 
-    /* Center Adjusted Door Tab (NO DATE, NO ADDRESS) */
+    /* Center Adjusted Door Tab (60% Transparent Label) */
     .door-btn-wrapper {
       position: absolute;
       top: 50%;
@@ -341,53 +341,50 @@
       text-align: center;
       transition: opacity 0.4s ease, transform 0.5s ease;
       width: 88%;
-      max-width: 330px;
-      padding: clamp(18px, 4vw, 26px) clamp(14px, 3vw, 22px);
-      background: radial-gradient(ellipse at center, rgba(255, 254, 250, 0.98) 0%, rgba(252, 247, 238, 0.98) 100%);
-      border-radius: 22px;
-      border: 1.8px solid var(--gold);
-      box-shadow: 0 15px 40px rgba(60, 45, 30, 0.26), 0 0 25px rgba(212, 175, 55, 0.28);
-      backdrop-filter: blur(10px);
+      max-width: 320px;
+      padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 18px);
+      background: rgba(255, 253, 248, 0.4);
+      border-radius: 20px;
+      border: 1.5px solid rgba(212, 175, 55, 0.65);
+      box-shadow: 0 10px 30px rgba(60, 45, 30, 0.18), 0 0 20px rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .door-sub-motif {
-      font-size: clamp(0.75rem, 2vw, 0.85rem);
-      letter-spacing: 4px;
-      color: var(--primary);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      font-weight: 700;
+      display: none;
     }
 
     .door-sub-text {
-      color: #7a6a57;
-      font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+      color: #5c442c;
+      font-size: clamp(0.65rem, 1.6vw, 0.75rem);
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .door-script-title {
       font-family: 'Alex Brush', cursive;
-      font-size: clamp(2.8rem, 8vw, 4rem);
+      font-size: clamp(1.8rem, 4.8vw, 2.4rem);
       color: var(--primary);
       line-height: 1.1;
-      margin: 4px 0 14px;
-      text-shadow: 0 2px 10px rgba(120, 13, 25, 0.12), 0 0 20px rgba(212, 175, 55, 0.25);
+      margin: 2px 0 10px;
+      text-shadow: 0 1px 6px rgba(120, 13, 25, 0.18), 0 0 12px rgba(255, 255, 255, 0.8);
     }
 
     .open-door-btn {
-      padding: clamp(12px, 3vw, 15px) clamp(28px, 6vw, 38px);
+      padding: clamp(8px, 2vw, 10px) clamp(18px, 4vw, 26px);
       background: linear-gradient(135deg, #780d19 0%, #520811 100%);
       color: #fffdf9;
       border: 1.5px solid var(--gold);
       border-radius: 50px;
-      font-size: clamp(0.82rem, 2vw, 0.92rem);
+      font-size: clamp(0.68rem, 1.6vw, 0.75rem);
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(120, 13, 25, 0.35), 0 0 15px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 4px 15px rgba(120, 13, 25, 0.3), 0 0 12px rgba(212, 175, 55, 0.3);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -395,7 +392,7 @@
       transform: scale(1.05);
       background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
       color: #2b0307;
-      box-shadow: 0 10px 25px rgba(120, 13, 25, 0.3), 0 0 20px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 8px 20px rgba(120, 13, 25, 0.3), 0 0 18px rgba(255, 215, 0, 0.6);
       border-color: #ffffff;
     }
 
@@ -598,6 +595,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    section#story > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > img:nth-of-type(1) {
+      width: 125.19999999999999px;
+      height: 125.19999999999999px;
     }
 
     .venue-img-box {
@@ -945,7 +947,6 @@
               <img src="photos/ajay_veena.jpeg" alt="Ajay and Veena" onerror="this.src='photos/couple.jpg'" />
             </div>
           </div>
-          <p class="reveal-sub-motif">✦ शुभ विवाह ✦</p>
           <p class="reveal-welcome-text">Warm Welcome To The Wedding Of</p>
           <h3 class="reveal-couple-names">Ajay &amp; Veena</h3>
           <p class="reveal-blessing">We invite you to celebrate our new beginning</p>
@@ -967,9 +968,8 @@
           <div class="french-handle"></div>
         </div>
 
-        <!-- Center Door Tab / Invitation Plaque (Adjusted per user request: NO DATE, NO ADDRESS) -->
+        <!-- Center Door Tab / Invitation Plaque (60% Transparent) -->
         <div class="door-btn-wrapper" id="door-btn-box">
-          <p class="door-sub-motif">✦ शुभ विवाह ✦</p>
           <p class="door-sub-text">The Wedding Celebration Of</p>
           <h2 class="door-script-title">Ajay &amp; Veena</h2>
           <button class="open-door-btn" onclick="openDoors()">✨ Open Invitation ✨</button>
@@ -1016,9 +1016,7 @@
     <div class="ornament">❦</div>
     <div class="sub-title">We Request The Honor Of Your Presence</div>
     <h1 class="names">
-      Ajay Kamat
-      <span class="ampersand">&amp;</span>
-      Veena Lalwani
+      Ajay &amp; Veena Wedding
     </h1>
 
     <!-- COUPLE HERO PHOTO (Regenerated 16:9) -->
@@ -1026,7 +1024,7 @@
       <img src="src/assets/images/regenerated_image_1790553048145.jpg" alt="Ajay and Veena Couple Portrait" onerror="this.src='photos/ajay_veena.jpeg'" />
     </div>
 
-    <div class="hero-date">Sunday, November 22, 2026 • 4:00 PM</div>
+    <div class="hero-date">November 20 – 22, 2026 • Padgha</div>
     <a href="#story" class="btn btn-gold" style="margin-top: 20px;">Begin Journey ↓</a>
   </header>
 
@@ -1043,7 +1041,7 @@
       <!-- Bride's Details -->
       <div class="family-card">
         <div class="profile-photo">
-          <img src="photos/veena_real.jpg" alt="Veena Lalwani" onerror="this.src='photos/veena.jpg'" />
+          <img src="src/assets/images/photos/veena_real.jpg" alt="Veena Lalwani" style="width: 125.2px; height: 125.2px;" onerror="this.src='photos/veena_real.jpg'" />
         </div>
         <h3>Veena Lalwani</h3>
         <p class="parents"><strong>Daughter of:</strong> Prakash Lalwani &amp; Neetu Lalwani</p>
@@ -1088,7 +1086,7 @@
 
       <!-- RESORT SCENIC PHOTO (1200x675px) -->
       <div class="venue-img-box">
-        <img src="photos/resort.jpg" alt="Vita Farms Resort Mountain View" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&auto=format&fit=crop&q=80'" />
+        <img src="src/assets/images/regenerated_image_1790554661846.webp" alt="Vita Farms Resort Mountain View" onerror="this.src='photos/resort.jpg'" />
       </div>
 
       <div class="notice-box">
@@ -1110,28 +1108,53 @@
     </div>
   </section>
 
-  <!-- SECTION 4: DAY 1 & 2 ITINERARY -->
+  <!-- SECTION 4: WEDDING ITINERARY -->
   <section id="itinerary">
-    <h2 class="section-title">Day 1 &amp; 2 Itinerary</h2>
+    <h2 class="section-title">Wedding Itinerary</h2>
     <div class="section-divider"></div>
 
     <!-- Day 1 -->
     <div class="itinerary-day">
-      <span class="day-badge">Day 1 — Pre-Wedding Celebrations</span>
+      <span class="day-badge">Day 1 — Friday, Nov 20, 2026</span>
       <div class="event-row">
-        <div class="event-time">Morning &amp; Afternoon</div>
-        <div class="event-name">Mehandi &amp; Haldi Ceremony</div>
-        <p style="font-size: 0.85rem; color: #666;">A lively celebration infused with fragrant mehendi, cheerful yellow haldi rituals, music, and laughter.</p>
+        <div class="event-time">05:00 PM Onwards</div>
+        <div class="event-name">Mehandi Ceremony</div>
+        <p style="font-size: 0.85rem; color: #666;">An auspicious evening of intricate mehandi artistry, music, and pre-wedding joy.</p>
       </div>
     </div>
 
     <!-- Day 2 -->
     <div class="itinerary-day">
-      <span class="day-badge">Day 2 — Sunday, Nov 22, 2026</span>
+      <span class="day-badge">Day 2 — Saturday, 21st Nov 2026</span>
       <div class="event-row">
-        <div class="event-time">04:00 PM Sharp</div>
-        <div class="event-name">The Wedding Ceremony &amp; Reception</div>
-        <p style="font-size: 0.85rem; color: #666;">Exchange of sacred vows amidst the mountains, followed by an evening feast, music, and overnight celebration.</p>
+        <div class="event-time">11:30 AM</div>
+        <div class="event-name">Haldi Ceremony</div>
+        <p style="font-size: 0.85rem; color: #666;">Joyful yellow turmeric ceremony infused with blessings, songs, and laughter.</p>
+      </div>
+      <div class="event-row">
+        <div class="event-time">03:00 PM</div>
+        <div class="event-name">Pool Party</div>
+        <p style="font-size: 0.85rem; color: #666;">Splash into fun with games and masti by the pool.</p>
+      </div>
+      <div class="event-row">
+        <div class="event-time">07:00 PM Onwards</div>
+        <div class="event-name">Sangeet Night</div>
+        <p style="font-size: 0.85rem; color: #666;">Electrifying musical evening featuring family dance performances, celebration, and dinner.</p>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="itinerary-day">
+      <span class="day-badge">Day 3 — Sunday, 22nd Nov 2026</span>
+      <div class="event-row">
+        <div class="event-time">04:00 PM Onwards</div>
+        <div class="event-name">The Wedding Ceremony</div>
+        <p style="font-size: 0.85rem; color: #666;">Exchange of sacred vows and pheras amidst the serene mountain backdrop.</p>
+      </div>
+      <div class="event-row">
+        <div class="event-time">07:30 PM</div>
+        <div class="event-name">Reception</div>
+        <p style="font-size: 0.85rem; color: #666;">Grand celebration dinner, heartfelt toasts, and joyous feast with family and friends.</p>
       </div>
     </div>
   </section>
