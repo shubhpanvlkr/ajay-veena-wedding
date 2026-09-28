@@ -129,15 +129,15 @@
 
     .reveal-couple-frame {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .reveal-couple-ring {
-      width: clamp(96px, 22vw, 145px);
-      height: clamp(96px, 22vw, 145px);
+      width: clamp(80px, 18vw, 120px);
+      height: clamp(80px, 18vw, 120px);
       border-radius: 50%;
-      border: 3.5px solid var(--gold);
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.55), 0 8px 24px rgba(0,0,0,0.22);
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 6px 20px rgba(0,0,0,0.2);
       overflow: hidden;
       background: #fff;
     }
@@ -149,16 +149,8 @@
       object-position: center 20%;
     }
 
-    .reveal-sub-motif {
-      font-size: clamp(0.7rem, 1.8vw, 0.8rem);
-      letter-spacing: 3px;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
     .reveal-welcome-text {
-      font-size: clamp(0.65rem, 1.7vw, 0.78rem);
+      font-size: clamp(0.6rem, 1.5vw, 0.72rem);
       color: #7a6a57;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -167,14 +159,14 @@
 
     .reveal-couple-names {
       font-family: 'Alex Brush', cursive;
-      font-size: clamp(2rem, 5.5vw, 2.8rem);
+      font-size: clamp(1.6rem, 4.2vw, 2.2rem);
       color: var(--primary);
       margin: 2px 0 4px;
       line-height: 1.1;
     }
 
     .reveal-blessing {
-      font-size: clamp(0.7rem, 1.8vw, 0.82rem);
+      font-size: clamp(0.65rem, 1.5vw, 0.75rem);
       color: #5c4e3f;
       font-style: italic;
     }
@@ -331,22 +323,22 @@
     .door-left .french-handle { right: 10px; }
     .door-right .french-handle { left: 10px; }
 
-    /* Center Adjusted Door Tab (60% Transparent Label) */
+    /* Center Adjusted Door Tab (Positioned above door-reveal-chamber & fitted properly) */
     .door-btn-wrapper {
       position: absolute;
-      top: 50%;
+      top: 38%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 30;
+      z-index: 100;
       text-align: center;
       transition: opacity 0.4s ease, transform 0.5s ease;
-      width: 88%;
-      max-width: 320px;
-      padding: clamp(14px, 3vw, 20px) clamp(12px, 2.5vw, 18px);
+      width: min(270px, 84%);
+      max-width: 270px;
+      padding: clamp(10px, 2.5vw, 15px) clamp(10px, 2.5vw, 16px);
       background: rgba(255, 253, 248, 0.4);
-      border-radius: 20px;
+      border-radius: 16px;
       border: 1.5px solid rgba(212, 175, 55, 0.65);
-      box-shadow: 0 10px 30px rgba(60, 45, 30, 0.18), 0 0 20px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 10px 25px rgba(60, 45, 30, 0.16), 0 0 18px rgba(212, 175, 55, 0.2);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -357,42 +349,45 @@
 
     .door-sub-text {
       color: #5c442c;
-      font-size: clamp(0.65rem, 1.6vw, 0.75rem);
-      letter-spacing: 2px;
+      font-size: clamp(0.58rem, 1.4vw, 0.68rem);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       font-weight: 700;
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+      margin-bottom: 2px;
     }
 
     .door-script-title {
       font-family: 'Alex Brush', cursive;
-      font-size: clamp(1.8rem, 4.8vw, 2.4rem);
+      font-size: clamp(1.5rem, 3.8vw, 1.95rem);
       color: var(--primary);
       line-height: 1.1;
-      margin: 2px 0 10px;
+      margin: 2px 0 8px;
       text-shadow: 0 1px 6px rgba(120, 13, 25, 0.18), 0 0 12px rgba(255, 255, 255, 0.8);
     }
 
     .open-door-btn {
-      padding: clamp(8px, 2vw, 10px) clamp(18px, 4vw, 26px);
+      padding: clamp(6px, 1.8vw, 9px) clamp(16px, 3.5vw, 22px);
       background: linear-gradient(135deg, #780d19 0%, #520811 100%);
       color: #fffdf9;
       border: 1.5px solid var(--gold);
       border-radius: 50px;
-      font-size: clamp(0.68rem, 1.6vw, 0.75rem);
+      font-size: clamp(0.62rem, 1.4vw, 0.7rem);
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(120, 13, 25, 0.3), 0 0 12px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 12px rgba(120, 13, 25, 0.3), 0 0 10px rgba(212, 175, 55, 0.3);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      white-space: nowrap;
+      max-width: 92%;
     }
 
     .open-door-btn:hover {
       transform: scale(1.05);
       background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
       color: #2b0307;
-      box-shadow: 0 8px 20px rgba(120, 13, 25, 0.3), 0 0 18px rgba(255, 215, 0, 0.6);
+      box-shadow: 0 6px 18px rgba(120, 13, 25, 0.3), 0 0 16px rgba(255, 215, 0, 0.6);
       border-color: #ffffff;
     }
 
@@ -411,14 +406,23 @@
 
     .modal-box {
       background: #fffdf9;
-      border: 3px solid var(--gold);
+      border: 2.5px solid var(--gold);
       border-radius: 16px;
-      max-width: 380px;
-      width: 100%;
-      padding: 28px 20px;
+      max-width: 290px;
+      width: 90%;
+      padding: 20px 16px;
       text-align: center;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       animation: popIn 0.4s ease-out;
+    }
+
+    .modal-box h3 {
+      font-size: 1.25rem !important;
+      margin-bottom: 2px;
+    }
+
+    .modal-box p {
+      font-size: 0.78rem !important;
     }
 
     @keyframes popIn {
@@ -428,13 +432,13 @@
 
     .scratch-wrapper {
       position: relative;
-      width: min(320px, 85vw);
-      height: 220px;
-      margin: 18px auto 12px;
-      border-radius: 12px;
+      width: min(240px, 80vw);
+      height: 155px;
+      margin: 14px auto 10px;
+      border-radius: 10px;
       overflow: hidden;
       border: 2px solid var(--gold);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       background: #fff;
     }
 
@@ -446,24 +450,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 15px;
+      padding: 10px;
       text-align: center;
     }
 
     .scratch-reveal h4 {
-      font-size: 0.8rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: var(--gold-dark);
       font-weight: 600;
     }
 
     .scratch-reveal .main-date {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--primary);
-      margin: 6px 0;
+      margin: 3px 0;
     }
 
     #scratch-canvas {
@@ -992,7 +996,7 @@
           <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600;">Sunday • 4:00 PM</p>
           <p style="font-size: 0.8rem; color: #555; margin-top: 4px;">Vita Farms Resort, Padgha</p>
         </div>
-        <canvas id="scratch-canvas" width="320" height="220"></canvas>
+        <canvas id="scratch-canvas" width="240" height="155"></canvas>
       </div>
 
       <div class="progress-bar-wrap">
@@ -1329,10 +1333,10 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = 'bold 16px Montserrat, sans-serif';
+      ctx.font = 'bold 12px Montserrat, sans-serif';
       ctx.fillStyle = '#42040b';
       ctx.textAlign = 'center';
-      ctx.fillText('✨ SCRATCH HERE ✨', canvas.width / 2, canvas.height / 2 + 6);
+      ctx.fillText('✨ SCRATCH HERE ✨', canvas.width / 2, canvas.height / 2 + 4);
     }
     initFoil();
 
@@ -1348,7 +1352,7 @@
 
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
-      ctx.arc(x, y, 22, 0, Math.PI * 2);
+      ctx.arc(x, y, 18, 0, Math.PI * 2);
       ctx.fill();
 
       checkProgress();
