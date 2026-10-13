@@ -1334,14 +1334,6 @@
       </div>
     </div>
 
-    <!-- Upload Photos Control -->
-    <div style="text-align: center; margin-top: 24px;">
-      <label for="prewed-upload-input" style="display: inline-flex; align-items: center; gap: 8px; background: #fffcf5; border: 1.5px dashed var(--gold); color: var(--primary); font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 600; padding: 10px 22px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 14px rgba(212,175,55,0.15); transition: all 0.25s ease;">
-        📸 Upload / Replace Photos (pre-wed1 to pre-wed4)
-      </label>
-      <input type="file" id="prewed-upload-input" accept="image/*" multiple style="display: none;" onchange="handlePrewedUpload(this)" />
-      <div id="upload-status" style="font-size: 0.85rem; color: var(--gold-dark); margin-top: 8px; font-weight: 500;"></div>
-    </div>
   </section>
 
   <!-- SECTION 2: SAVE THE DATE (TRIGGER SECTION) -->
@@ -1780,58 +1772,6 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLightbox();
     });
-
-    // 8. CLIENT-SIDE PRE-WEDDING PHOTO UPLOAD HANDLER
-    function handlePrewedUpload(input) {
-      if (!input.files || input.files.length === 0) return;
-      const status = document.getElementById('upload-status');
-      status.textContent = 'Processing and uploading ' + input.files.length + ' file(s)...';
-      status.style.color = 'var(--primary)';
-
-      const readPromises = Array.from(input.files).map(file => {
-        return new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            resolve({
-              filename: file.name,
-              data: e.target.result
-            });
-          };
-          reader.readAsDataURL(file);
-        });
-      });
-
-      Promise.all(readPromises).then(files => {
-        fetch('/api/upload-photos', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ files })
-        })
-        .then(r => r.json())
-        .then(res => {
-          if (res.success) {
-            status.textContent = '✓ ' + (res.saved?.length || files.length) + ' photo(s) updated successfully!';
-            status.style.color = '#2e7d32';
-            const t = Date.now();
-            // Refresh images
-            ['prewed-img-1', 'prewed-img-2', 'prewed-img-3', 'prewed-img-4'].forEach((id, idx) => {
-              const el = document.getElementById(id);
-              if (el) {
-                el.src = 'photos/pre-wed' + (idx + 1) + '.jpeg?t=' + t;
-              }
-            });
-            setTimeout(() => { status.textContent = ''; }, 4500);
-          } else {
-            status.textContent = 'Upload error: ' + (res.error || 'Failed');
-            status.style.color = '#c62828';
-          }
-        })
-        .catch(err => {
-          status.textContent = 'Upload failed: ' + err.message;
-          status.style.color = '#c62828';
-        });
-      });
-    }
   </script>
 
   <!-- Pre-Wedding Lightbox Modal -->
