@@ -709,6 +709,201 @@
       width: 100%;
     }
 
+    /* Pre-Wedding Photo Gallery Section */
+    .prewed-section {
+      position: relative;
+    }
+
+    .prewed-intro {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: #6a5342;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .prewed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 15px;
+    }
+
+    .prewed-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      border: 1.5px solid rgba(212, 175, 55, 0.55);
+      box-shadow: 0 8px 24px rgba(60, 45, 30, 0.12);
+      transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+
+    .prewed-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(120, 13, 25, 0.18), 0 0 20px rgba(212, 175, 55, 0.35);
+      border-color: var(--gold);
+    }
+
+    .prewed-img-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #f8f3eb;
+    }
+
+    .prewed-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .prewed-card:hover .prewed-img {
+      transform: scale(1.06);
+    }
+
+    .prewed-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(50, 10, 15, 0.88) 0%, rgba(50, 10, 15, 0.25) 45%, transparent 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 16px;
+      color: #fff;
+      opacity: 0.95;
+      transition: opacity 0.3s ease;
+    }
+
+    .prewed-tag {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(212, 175, 55, 0.88);
+      color: #3f1a04;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+
+    .prewed-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #fffdf8;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .prewed-subcaption {
+      font-size: 0.8rem;
+      color: rgba(255, 253, 245, 0.88);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .prewed-zoom-hint {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .prewed-card:hover .prewed-zoom-hint {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Lightbox Modal */
+    .prewed-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 5, 5, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .prewed-lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .prewed-lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .prewed-lightbox-img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      object-fit: contain;
+    }
+
+    .prewed-lightbox-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .prewed-lightbox-close:hover {
+      background: var(--primary);
+    }
+
+    .prewed-lightbox-caption {
+      color: #fffdf8;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-top: 12px;
+      text-align: center;
+    }
+
     /* Countdown */
     .countdown-container {
       display: flex;
@@ -1071,9 +1266,81 @@
           <img src="src/assets/images/photos/ajay_real.jpg" alt="Ajay Kamat" onerror="this.src='photos/ajay_real.jpg'" />
         </div>
         <h3>Ajay Kamat</h3>
-        <p class="parents"><strong>Son of:</strong> Diljit Kamat</p>
+        <p class="parents"><strong>Son of:</strong> Diljit Kamat &amp; Rita Kamat</p>
         <p class="address">📍 Room No 1323, Kamat Niwas, Behind Maharashtra Ply Ghar, Near Water Tank, Kongaon - 421311</p>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PRE-WEDDING PHOTOS (OUR ENDLESS LOVE) -->
+  <section id="pre-wedding" class="prewed-section">
+    <h2 class="section-title">Endless Love</h2>
+    <div class="section-divider"></div>
+    <p class="prewed-intro">
+      "In every glance a promise, in every smile a story — celebrating our beautiful, endless love for each other as we begin our forever."
+    </p>
+
+    <div class="prewed-grid">
+      <!-- Photo 1: Toast to Forever -->
+      <div class="prewed-card" onclick="openLightbox('photos/pre-wed1.jpeg', 'Cheers to Forever — Ajay &amp; Veena')">
+        <div class="prewed-img-wrapper">
+          <img id="prewed-img-1" class="prewed-img" src="photos/pre-wed1.jpeg" alt="Ajay &amp; Veena Candlelight Celebration Photoshoot" />
+          <div class="prewed-zoom-hint">🔍</div>
+          <div class="prewed-overlay">
+            <span class="prewed-tag">Celebration</span>
+            <h3 class="prewed-caption">Cheers to Forever</h3>
+            <p class="prewed-subcaption">Toasting a lifetime of joy under twinkling lights</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 2: Mediterranean Villa -->
+      <div class="prewed-card" onclick="openLightbox('photos/pre-wed2.jpeg', 'Mediterranean Reverie — Ajay &amp; Veena')">
+        <div class="prewed-img-wrapper">
+          <img id="prewed-img-2" class="prewed-img" src="photos/pre-wed2.jpeg" alt="Ajay &amp; Veena Mediterranean Villa Photoshoot" />
+          <div class="prewed-zoom-hint">🔍</div>
+          <div class="prewed-overlay">
+            <span class="prewed-tag">Rustic Charm</span>
+            <h3 class="prewed-caption">Mediterranean Reverie</h3>
+            <p class="prewed-subcaption">Chic modern warmth under the trellis</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 3: Sunny Orchard -->
+      <div class="prewed-card" onclick="openLightbox('photos/pre-wed3.jpeg', 'Sunlit Harmony — Ajay &amp; Veena')">
+        <div class="prewed-img-wrapper">
+          <img id="prewed-img-3" class="prewed-img" src="photos/pre-wed3.jpeg" alt="Ajay &amp; Veena Nature Orchard Photoshoot" />
+          <div class="prewed-zoom-hint">🔍</div>
+          <div class="prewed-overlay">
+            <span class="prewed-tag">Golden Sun</span>
+            <h3 class="prewed-caption">Sunlit Harmony</h3>
+            <p class="prewed-subcaption">Wrapped in warmth among lush greens</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 4: Twilight / Traditional -->
+      <div class="prewed-card" onclick="openLightbox('photos/pre-wed4.jpeg', 'Whispers in Twilight — Ajay &amp; Veena')">
+        <div class="prewed-img-wrapper">
+          <img id="prewed-img-4" class="prewed-img" src="photos/pre-wed4.jpeg" alt="Ajay &amp; Veena Twilight Photoshoot" />
+          <div class="prewed-zoom-hint">🔍</div>
+          <div class="prewed-overlay">
+            <span class="prewed-tag">Twilight Romance</span>
+            <h3 class="prewed-caption">Whispers in Twilight</h3>
+            <p class="prewed-subcaption">Timeless grace in traditional elegance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Photos Control -->
+    <div style="text-align: center; margin-top: 24px;">
+      <label for="prewed-upload-input" style="display: inline-flex; align-items: center; gap: 8px; background: #fffcf5; border: 1.5px dashed var(--gold); color: var(--primary); font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 600; padding: 10px 22px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 14px rgba(212,175,55,0.15); transition: all 0.25s ease;">
+        📸 Upload / Replace Photos (pre-wed1 to pre-wed4)
+      </label>
+      <input type="file" id="prewed-upload-input" accept="image/*" multiple style="display: none;" onchange="handlePrewedUpload(this)" />
+      <div id="upload-status" style="font-size: 0.85rem; color: var(--gold-dark); margin-top: 8px; font-weight: 500;"></div>
     </div>
   </section>
 
@@ -1108,7 +1375,6 @@
 
       <div class="notice-box">
         <p>⛰️ <strong>Things You Need to Know:</strong> The wedding will be in Padgha, located approximately one hour away from Kalyan. You can reach the venue by car or bus.</p>
-        <p>🌄 <strong>Offbeat Mountain View:</strong> Venue is offbeat with a stunning Mountain view. You’ll need to stay the night as getting out isn’t easy!</p>
       </div>
 
       <!-- Embedded Google Map -->
@@ -1186,7 +1452,7 @@
         Please RSVP at the earliest so we can ensure the best arrangements for your comfort and joy. Your presence means the world to us!
       </p>
 
-      <a href="https://docs.google.com/forms" target="_blank" class="btn btn-rsvp">
+      <a href="https://forms.gle/uLAZfDVCpfhTsdCv5" target="_blank" class="btn btn-rsvp">
         📋 Open RSVP Google Form
       </a>
 
@@ -1194,7 +1460,7 @@
       <div class="qr-box">
         <h4 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.15rem;">Blessings &amp; Shagun</h4>
         <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Your presence &amp; blessings are our greatest gift. For monetary shagun:</p>
-        <img class="qr-img" src="photos/qr.jpg" alt="UPI QR Code for Shagun" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=7021795250@upi&pn=Ajay%20and%20Veena&cu=INR'" />
+        <img class="qr-img" src="photos/QR_final.jpg" alt="UPI QR Code for Shagun" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=7021795250@upi&pn=Ajay%20and%20Veena&cu=INR'" />
         <span style="font-size: 0.8rem; color: var(--gold-dark); font-weight: 600;">Scan with GPay / PhonePe / Paytm</span>
       </div>
     </div>
@@ -1489,6 +1755,92 @@
       requestAnimationFrame(drawPetals);
     }
     drawPetals();
+
+    // 7. PRE-WEDDING LIGHTBOX
+    function openLightbox(src, caption) {
+      const lb = document.getElementById('prewed-lightbox');
+      const img = document.getElementById('prewed-lightbox-img');
+      const cap = document.getElementById('prewed-lightbox-caption');
+      if (lb && img && cap) {
+        img.src = src;
+        cap.innerHTML = caption;
+        lb.classList.add('active');
+        document.body.classList.add('scroll-locked');
+      }
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('prewed-lightbox');
+      if (lb) {
+        lb.classList.remove('active');
+        document.body.classList.remove('scroll-locked');
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // 8. CLIENT-SIDE PRE-WEDDING PHOTO UPLOAD HANDLER
+    function handlePrewedUpload(input) {
+      if (!input.files || input.files.length === 0) return;
+      const status = document.getElementById('upload-status');
+      status.textContent = 'Processing and uploading ' + input.files.length + ' file(s)...';
+      status.style.color = 'var(--primary)';
+
+      const readPromises = Array.from(input.files).map(file => {
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            resolve({
+              filename: file.name,
+              data: e.target.result
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      });
+
+      Promise.all(readPromises).then(files => {
+        fetch('/api/upload-photos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ files })
+        })
+        .then(r => r.json())
+        .then(res => {
+          if (res.success) {
+            status.textContent = '✓ ' + (res.saved?.length || files.length) + ' photo(s) updated successfully!';
+            status.style.color = '#2e7d32';
+            const t = Date.now();
+            // Refresh images
+            ['prewed-img-1', 'prewed-img-2', 'prewed-img-3', 'prewed-img-4'].forEach((id, idx) => {
+              const el = document.getElementById(id);
+              if (el) {
+                el.src = 'photos/pre-wed' + (idx + 1) + '.jpeg?t=' + t;
+              }
+            });
+            setTimeout(() => { status.textContent = ''; }, 4500);
+          } else {
+            status.textContent = 'Upload error: ' + (res.error || 'Failed');
+            status.style.color = '#c62828';
+          }
+        })
+        .catch(err => {
+          status.textContent = 'Upload failed: ' + err.message;
+          status.style.color = '#c62828';
+        });
+      });
+    }
   </script>
+
+  <!-- Pre-Wedding Lightbox Modal -->
+  <div id="prewed-lightbox" class="prewed-lightbox" onclick="closeLightbox()">
+    <div class="prewed-lightbox-content" onclick="event.stopPropagation()">
+      <button class="prewed-lightbox-close" onclick="closeLightbox()" aria-label="Close photo preview">✕</button>
+      <img id="prewed-lightbox-img" class="prewed-lightbox-img" src="" alt="Pre-Wedding Full View" />
+      <div id="prewed-lightbox-caption" class="prewed-lightbox-caption"></div>
+    </div>
+  </div>
 </body>
 </html>
