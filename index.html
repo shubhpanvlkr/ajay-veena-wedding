@@ -573,16 +573,17 @@
       margin-top: 10px;
     }
 
-    /* IMAGE CONTAINERS - Updated for regenerated 16:9 landscape image */
+    /* IMAGE CONTAINERS - Adapted for vertical/portrait couple photo */
     .hero-img-box {
-      width: min(440px, 88vw);
+      width: min(380px, 86vw);
       height: auto;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 5;
+      max-height: 480px;
       margin: 18px auto 14px;
       border-radius: 16px;
       border: 2.5px solid var(--gold);
       padding: 0;
-      background: transparent;
+      background: #fdfaf3;
       box-shadow: 0 10px 30px rgba(70, 50, 30, 0.2);
       overflow: hidden;
     }
@@ -591,8 +592,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 18%;
       border-radius: 14px;
       display: block;
+      transition: object-position 0.3s ease;
     }
 
     .profile-photo {
@@ -1235,7 +1238,7 @@
 
     <!-- COUPLE HERO PHOTO (Regenerated 16:9) -->
     <div class="hero-img-box">
-      <img src="src/assets/images/regenerated_image_1790553048145.jpg" alt="Ajay and Veena Couple Portrait" onerror="this.src='photos/ajay_veena.jpeg'" />
+      <img src="src/assets/images/prewed.JPG" alt="Ajay and Veena Couple Portrait" onerror="this.src='photos/prewed.JPG'" />
     </div>
     <a href="#story" class="btn btn-gold" style="margin-top: 20px;">Begin Journey ↓</a>
   </header>
@@ -1263,7 +1266,7 @@
       <!-- Groom's Details -->
       <div class="family-card">
         <div class="profile-photo">
-          <img src="src/assets/images/photos/ajay_real.jpg" alt="Ajay Kamat" onerror="this.src='photos/ajay_real.jpg'" />
+          <img src="src/assets/images/photos/ajay_real1.jpg" alt="Ajay Kamat" onerror="this.src='photos/ajay_real.jpg'" />
         </div>
         <h3>Ajay Kamat</h3>
         <p class="parents"><strong>Son of:</strong> Diljit Kamat &amp; Rita Kamat</p>
@@ -1447,14 +1450,6 @@
       <a href="https://forms.gle/uLAZfDVCpfhTsdCv5" target="_blank" class="btn btn-rsvp">
         📋 Open RSVP Google Form
       </a>
-
-      <!-- Money Blessings QR Code (600x600px) -->
-      <div class="qr-box">
-        <h4 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.15rem;">Blessings &amp; Shagun</h4>
-        <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Your presence &amp; blessings are our greatest gift. For monetary shagun:</p>
-        <img class="qr-img" src="photos/QR_final.jpg" alt="UPI QR Code for Shagun" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=7021795250@upi&pn=Ajay%20and%20Veena&cu=INR'" />
-        <span style="font-size: 0.8rem; color: var(--gold-dark); font-weight: 600;">Scan with GPay / PhonePe / Paytm</span>
-      </div>
     </div>
   </section>
 
